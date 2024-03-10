@@ -4,12 +4,12 @@
 
 ##  Project 2: asset catalogs, buttons, colors, and more.
 
-# last Update:
+# Last Update:
 ![Page 1](Upd1.png)
 ![Page 1](Upd2.png)
 ![Page 1](Upd3.png)
 
-# first Update:
+# First Update:
 ![Page 1](1.png)
 ![Page 1](2.png)
 
