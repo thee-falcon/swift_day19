@@ -2,7 +2,7 @@
 
 ![Swift Logo](https://cdn-icons-png.flaticon.com/256/919/919833.png)
 
-##  Project 2-part one, asset catalogs, buttons, colors, and more.
+##  Project 2: asset catalogs, buttons, colors, and more.
 
 # last Update:
 ![Page 1](Upd1.png)
