@@ -18,13 +18,14 @@ class FlagsViewController: UIViewController {
     var score = 0
     // corect answer
     var correctAnswer = 0
+    // count questions:
+    var countAnswers = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "morocco", "nigeria", "poland", "russia", "spain", "uk", "us"]
 
-//        navigationController?.setNavigationBarHidden(true, animated: false)
         button1.layer.borderWidth = 0.1
         button2.layer.borderWidth = 0.1
         button3.layer.borderWidth = 0.1
@@ -39,28 +40,45 @@ class FlagsViewController: UIViewController {
     func    askQuestion(action: UIAlertAction! = nil) {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        countAnswers += 1
+
+        if countAnswers == 11 {
+            showFinalCount()
+        }
         
         button1.setImage(UIImage(named: countries[0]), for: .normal)
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         
-        title = "Which flag is " + countries[correctAnswer].uppercased() + "?"
+        title = countries[correctAnswer].uppercased() + "   | Your Score: \(score)"
+        
     }
+
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title: String
-        
         if sender.tag == correctAnswer {
             title = "Correct"
             score += 1
         } else {
             title = "Wrong"
         }
-        
-        let ac = UIAlertController(title: title, message: "Your Score is \(score)", preferredStyle: .alert)
+       
+        let ac = UIAlertController(title: title, message: "The Correct Answer is: \(countries[correctAnswer].uppercased())", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         present(ac, animated: true)
     }
-    
+
+    func showFinalCount() {
+        let alertContr = UIAlertController(title: "Quiz Completed", message: "Your Final Score is: \(score) out of 10", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            // Use popToRootViewController to go back to the home screen
+            self?.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        alertContr.addAction(okAction)
+        present(alertContr, animated: true, completion: nil)
+    }
+
     /*
     // MARK: - Navigation
 
