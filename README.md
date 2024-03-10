@@ -13,4 +13,7 @@
 ![Page 1](1.png)
 ![Page 1](2.png)
 
+# Days:
 ![Page 1](day19.png)
+![Page 1](20.png)
+![Page 1](21.png)
